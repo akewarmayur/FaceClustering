@@ -32,9 +32,13 @@ The process is as follows
 https://github.com/akewarmayur/FaceClustering/assets/31464781/80c56596-c1cb-4aea-bf83-15658492f3bc
 
 #### Output Clusters
+* Cluster 1
 ![img_3.png](read_me_images/img_3.png)
+* Cluster 2
 ![img_4.png](read_me_images/img_4.png)
+* Cluster 3
 ![img_5.png](read_me_images/img_5.png)
+* Unknown Cluster
 ![img_6.png](read_me_images/img_6.png)
 
 #### Output CSV
