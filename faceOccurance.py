@@ -15,6 +15,7 @@ import celebrityList
 from datetime import datetime
 import matplotlib.pyplot as plt
 import numpy as np
+import argparse
 
 
 class FaceOccurance:
@@ -252,7 +253,7 @@ class FaceOccurance:
         plt.savefig("CelebrityOccurrences.png")
         plt.show()
 
-    def startProcess(self, images_path):
+    def startProcess(self, images_path, isCelebrityListAvailable):
         objFD = FaceDetection()
         objClu = ClusterAlgo()
         list_of_prompts = []
@@ -276,37 +277,46 @@ class FaceOccurance:
             list_of_images.sort(key=self.natural_keys)
             extract_faces_df = objFD.extractFaces(list_of_images)
             extract_faces_df.to_csv("facesInfo.csv")
-            extract_faces_df = pd.read_csv("facesInfo.csv")
+            # extract_faces_df = pd.read_csv("facesInfo.csv")
             ee = objClu.clusterFaces(extract_faces_df)
             ee.to_csv("clusteringResults.csv")
             print(ee)
+            if isCelebrityListAvailable == "True" or isCelebrityListAvailable == "TRUE":
+                for ind, row in extract_faces_df.iterrows():
+                    face_path = row['PaddedFacesPath']
+                    Highest3Predictions = self.get_prediction(face_path, list_of_prompts,
+                                                              3, model, preprocess)
+                    c1 = Highest3Predictions[0][0]
+                    s1 = round(100 * Highest3Predictions[0][1], 2)
+                    if s1 > 70:
+                        detected_celebrity = c1.split("a photo of ")[1]
+                        df_length1 = len(results)
+                        results.loc[df_length1] = [row['FrameFileName'], face_path, detected_celebrity]
+                    else:
+                        df_length1 = len(results)
+                        results.loc[df_length1] = [row['FrameFileName'], face_path, "unknown"]
+                clusterDF = self.cluster_using_clip(results)
+                clusterDF.to_csv("CelebrityCluster.csv")
 
-            for ind, row in extract_faces_df.iterrows():
-                face_path = row['PaddedFacesPath']
-                Highest3Predictions = self.get_prediction(face_path, list_of_prompts,
-                                                          3, model, preprocess)
-                c1 = Highest3Predictions[0][0]
-                s1 = round(100 * Highest3Predictions[0][1], 2)
-                if s1 > 70:
-                    detected_celebrity = c1.split("a photo of ")[1]
-                    df_length1 = len(results)
-                    results.loc[df_length1] = [row['FrameFileName'], face_path, detected_celebrity]
-                else:
-                    df_length1 = len(results)
-                    results.loc[df_length1] = [row['FrameFileName'], face_path, "unknown"]
-            clusterDF = self.cluster_using_clip(results)
-            clusterDF.to_csv("CelebrityCluster.csv")
-
-            clusterDF['Seconds'] = ""
-            sorted_df = clusterDF.sort_values(by='TimeStamp', ascending=True)
-            sorted_df['Seconds'] = clusterDF["TimeStamp"].apply(self.time_to_seconds)
-            x_values = sorted_df["Celebrity"].tolist()
-            y_values = sorted_df["Seconds"].tolist()
-            self.plot_with_labels(x_values, y_values)
+                clusterDF['Seconds'] = ""
+                sorted_df = clusterDF.sort_values(by='TimeStamp', ascending=True)
+                sorted_df['Seconds'] = clusterDF["TimeStamp"].apply(self.time_to_seconds)
+                x_values = sorted_df["Celebrity"].tolist()
+                y_values = sorted_df["Seconds"].tolist()
+                self.plot_with_labels(x_values, y_values)
 
         except Exception as e:
             print(e)
 
 
-obj = FaceOccurance()
-obj.startProcess("test_video.mp4")
+if __name__ == '__main__':
+    my_parser = argparse.ArgumentParser()
+    my_parser.add_argument('--input_video', action='store', type=str, required=True)
+    my_parser.add_argument('--isCelebrityListAvailable', action='store', type=str, required=True)
+    args = my_parser.parse_args()
+    input_video = args.input_video
+    isCelebrityListAvailable = args.isCelebrityListAvailable
+    obj = FaceOccurance()
+    obj.startProcess(input_video, isCelebrityListAvailable)
+
+
