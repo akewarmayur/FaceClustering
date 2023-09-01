@@ -2,9 +2,7 @@ import cv2
 import os
 import pandas as pd
 from retinaface.RetinaFace import detect_faces
-import glob
 import re
-
 
 class FaceDetection:
     def __init__(self):
@@ -26,7 +24,7 @@ class FaceDetection:
             os.makedirs(savePaddedFaces)
 
         df = pd.DataFrame(
-            columns=["FrameFileName", "FacesPath", "PaddedFacesPath", "FA1", "FA2", "FA3", "FA4"])
+            columns=["FramesPath", "FacesPath", "PaddedFacesPath", "X1", "X2", "X3", "X4"])
 
         def get_faces(image_path):
             return detect_faces(image_path)
@@ -40,7 +38,6 @@ class FaceDetection:
                 ry = image_path.split("/")
                 ry = ry[len(ry) - 1]
                 z = str(ry).split(".")[0]
-            print(z)
             try:
                 resp = get_faces(image_path)
                 print(f"**{image_path} : {resp}")
@@ -94,8 +91,7 @@ class FaceDetection:
                         df_length1 = len(df)
                         df.loc[df_length1] = tmp
             except Exception as e:
-                # res[image_path] = []
-                print('Error in cropping face :', e)
+                print('Error in cropping process:', e)
                 pass
 
         return df

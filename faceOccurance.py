@@ -30,7 +30,7 @@ class FaceOccurance:
         return [self.atoi(c) for c in re.split(r'(\d+)', text)]
 
     def extract_frames(self, input_video, fps):
-        dest_folder_path = "FramesSavedHere/"
+        dest_folder_path = "Frames/"
         if not os.path.exists(dest_folder_path):
             os.makedirs(dest_folder_path)
         query = "ffmpeg -i " + input_video + " -pix_fmt rgb24 -vf fps=" + str(
@@ -99,7 +99,7 @@ class FaceOccurance:
             os.makedirs(savePaddedFaces)
 
         df = pd.DataFrame(
-            columns=["FrameFileName", "FacesPath", "PaddedFacesPath", "FA1", "FA2", "FA3", "FA4"])
+            columns=["FramesPath", "FacesPath", "PaddedFacesPath", "X1", "X2", "X3", "X4"])
 
         def get_faces(image_path):
             return detect_faces(image_path)
@@ -167,9 +167,7 @@ class FaceOccurance:
                         df_length1 = len(df)
                         df.loc[df_length1] = tmp
             except Exception as e:
-                # res[image_path] = []
-                print('Error in cropping face :', e)
-                pass
+                print('Error in cropping :', e)
 
         return df
 
@@ -232,12 +230,8 @@ class FaceOccurance:
         return result
 
     def time_to_seconds(self, time_string):
-        # Parse the time string to a datetime object (Assuming format is HH:MM:SS)
         dt_object = datetime.strptime(time_string, "%H:%M:%S")
-
-        # Calculate the total seconds since the start of the day
         seconds = dt_object.hour * 3600 + dt_object.minute * 60 + dt_object.second
-
         return seconds
 
     def plot_with_labels(self, x_values, y_values):
@@ -262,7 +256,7 @@ class FaceOccurance:
         list_of_prompts.append("a photo of unidentified person")
         list_of_prompts.append("a photo of ")
         model, preprocess = self.get_clip_model()
-        results = pd.DataFrame(columns=["FrameFileName", "FacePath", "Celebrity"])
+        results = pd.DataFrame(columns=["FramesPath", "FacePath", "Celebrity"])
         try:
             isFolder = True
             tm = images_path.split(".")
@@ -291,16 +285,16 @@ class FaceOccurance:
                     if s1 > 70:
                         detected_celebrity = c1.split("a photo of ")[1]
                         df_length1 = len(results)
-                        results.loc[df_length1] = [row['FrameFileName'], face_path, detected_celebrity]
+                        results.loc[df_length1] = [row['FramesPath'], face_path, detected_celebrity]
                     else:
                         df_length1 = len(results)
-                        results.loc[df_length1] = [row['FrameFileName'], face_path, "unknown"]
+                        results.loc[df_length1] = [row['FramesPath'], face_path, "unknown"]
                 clusterDF = self.cluster_using_clip(results)
                 clusterDF.to_csv("CelebrityCluster.csv")
 
                 clusterDF['Seconds'] = ""
-                sorted_df = clusterDF.sort_values(by='TimeStamp', ascending=True)
-                sorted_df['Seconds'] = clusterDF["TimeStamp"].apply(self.time_to_seconds)
+                sorted_df = clusterDF.sort_values(by='Time', ascending=True)
+                sorted_df['Seconds'] = clusterDF["Time"].apply(self.time_to_seconds)
                 x_values = sorted_df["Celebrity"].tolist()
                 y_values = sorted_df["Seconds"].tolist()
                 self.plot_with_labels(x_values, y_values)

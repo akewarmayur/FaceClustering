@@ -1,4 +1,4 @@
-,Character ID,ImagePath
+,Clusters,FacesPath
 0,Not Clustered Faces,PaddedFaces/img_000001_1.png
 1,Not Clustered Faces,PaddedFaces/img_000002_0.png
 2,Not Clustered Faces,PaddedFaces/img_000002_1.png
@@ -69,57 +69,57 @@
 67,Not Clustered Faces,PaddedFaces/img_000127_1.png
 68,Not Clustered Faces,PaddedFaces/img_000128_0.png
 69,Not Clustered Faces,PaddedFaces/img_000130_0.png
-70,Face ID #0,PaddedFaces/img_000001_0.png
-71,Face ID #0,PaddedFaces/img_000035_0.png
-72,Face ID #0,PaddedFaces/img_000036_0.png
-73,Face ID #0,PaddedFaces/img_000046_0.png
-74,Face ID #0,PaddedFaces/img_000048_0.png
-75,Face ID #0,PaddedFaces/img_000058_0.png
-76,Face ID #0,PaddedFaces/img_000059_0.png
-77,Face ID #0,PaddedFaces/img_000060_0.png
-78,Face ID #0,PaddedFaces/img_000061_0.png
-79,Face ID #0,PaddedFaces/img_000066_0.png
-80,Face ID #0,PaddedFaces/img_000072_0.png
-81,Face ID #0,PaddedFaces/img_000079_0.png
-82,Face ID #0,PaddedFaces/img_000085_0.png
-83,Face ID #0,PaddedFaces/img_000086_0.png
-84,Face ID #0,PaddedFaces/img_000087_0.png
-85,Face ID #0,PaddedFaces/img_000088_0.png
-86,Face ID #0,PaddedFaces/img_000098_0.png
-87,Face ID #0,PaddedFaces/img_000099_0.png
-88,Face ID #0,PaddedFaces/img_000100_0.png
-89,Face ID #0,PaddedFaces/img_000101_0.png
-90,Face ID #0,PaddedFaces/img_000109_0.png
-91,Face ID #0,PaddedFaces/img_000110_0.png
-92,Face ID #1,PaddedFaces/img_000037_0.png
-93,Face ID #1,PaddedFaces/img_000042_0.png
-94,Face ID #1,PaddedFaces/img_000043_0.png
-95,Face ID #1,PaddedFaces/img_000044_0.png
-96,Face ID #1,PaddedFaces/img_000050_0.png
-97,Face ID #1,PaddedFaces/img_000051_0.png
-98,Face ID #1,PaddedFaces/img_000052_0.png
-99,Face ID #1,PaddedFaces/img_000053_0.png
-100,Face ID #1,PaddedFaces/img_000054_0.png
-101,Face ID #1,PaddedFaces/img_000057_0.png
-102,Face ID #1,PaddedFaces/img_000062_0.png
-103,Face ID #1,PaddedFaces/img_000063_0.png
-104,Face ID #2,PaddedFaces/img_000070_0.png
-105,Face ID #2,PaddedFaces/img_000082_0.png
-106,Face ID #2,PaddedFaces/img_000083_0.png
-107,Face ID #2,PaddedFaces/img_000084_0.png
-108,Face ID #2,PaddedFaces/img_000089_0.png
-109,Face ID #2,PaddedFaces/img_000090_0.png
-110,Face ID #2,PaddedFaces/img_000091_0.png
-111,Face ID #2,PaddedFaces/img_000092_0.png
-112,Face ID #2,PaddedFaces/img_000094_0.png
-113,Face ID #2,PaddedFaces/img_000095_0.png
-114,Face ID #2,PaddedFaces/img_000096_0.png
-115,Face ID #2,PaddedFaces/img_000097_0.png
-116,Face ID #2,PaddedFaces/img_000102_0.png
-117,Face ID #2,PaddedFaces/img_000103_0.png
-118,Face ID #2,PaddedFaces/img_000104_0.png
-119,Face ID #2,PaddedFaces/img_000105_0.png
-120,Face ID #2,PaddedFaces/img_000106_0.png
-121,Face ID #2,PaddedFaces/img_000107_0.png
-122,Face ID #2,PaddedFaces/img_000108_0.png
-123,Face ID #2,PaddedFaces/img_000111_0.png
+70,Cluster 1,PaddedFaces/img_000001_0.png
+71,Cluster 1,PaddedFaces/img_000035_0.png
+72,Cluster 1,PaddedFaces/img_000036_0.png
+73,Cluster 1,PaddedFaces/img_000046_0.png
+74,Cluster 1,PaddedFaces/img_000048_0.png
+75,Cluster 1,PaddedFaces/img_000058_0.png
+76,Cluster 1,PaddedFaces/img_000059_0.png
+77,Cluster 1,PaddedFaces/img_000060_0.png
+78,Cluster 1,PaddedFaces/img_000061_0.png
+79,Cluster 1,PaddedFaces/img_000066_0.png
+80,Cluster 1,PaddedFaces/img_000072_0.png
+81,Cluster 1,PaddedFaces/img_000079_0.png
+82,Cluster 1,PaddedFaces/img_000085_0.png
+83,Cluster 1,PaddedFaces/img_000086_0.png
+84,Cluster 1,PaddedFaces/img_000087_0.png
+85,Cluster 1,PaddedFaces/img_000088_0.png
+86,Cluster 1,PaddedFaces/img_000098_0.png
+87,Cluster 1,PaddedFaces/img_000099_0.png
+88,Cluster 1,PaddedFaces/img_000100_0.png
+89,Cluster 1,PaddedFaces/img_000101_0.png
+90,Cluster 1,PaddedFaces/img_000109_0.png
+91,Cluster 1,PaddedFaces/img_000110_0.png
+92,Cluster 2,PaddedFaces/img_000037_0.png
+93,Cluster 2,PaddedFaces/img_000042_0.png
+94,Cluster 2,PaddedFaces/img_000043_0.png
+95,Cluster 2,PaddedFaces/img_000044_0.png
+96,Cluster 2,PaddedFaces/img_000050_0.png
+97,Cluster 2,PaddedFaces/img_000051_0.png
+98,Cluster 2,PaddedFaces/img_000052_0.png
+99,Cluster 2,PaddedFaces/img_000053_0.png
+100,Cluster 2,PaddedFaces/img_000054_0.png
+101,Cluster 2,PaddedFaces/img_000057_0.png
+102,Cluster 2,PaddedFaces/img_000062_0.png
+103,Cluster 2,PaddedFaces/img_000063_0.png
+104,Cluster 3,PaddedFaces/img_000070_0.png
+105,Cluster 3,PaddedFaces/img_000082_0.png
+106,Cluster 3,PaddedFaces/img_000083_0.png
+107,Cluster 3,PaddedFaces/img_000084_0.png
+108,Cluster 3,PaddedFaces/img_000089_0.png
+109,Cluster 3,PaddedFaces/img_000090_0.png
+110,Cluster 3,PaddedFaces/img_000091_0.png
+111,Cluster 3,PaddedFaces/img_000092_0.png
+112,Cluster 3,PaddedFaces/img_000094_0.png
+113,Cluster 3,PaddedFaces/img_000095_0.png
+114,Cluster 3,PaddedFaces/img_000096_0.png
+115,Cluster 3,PaddedFaces/img_000097_0.png
+116,Cluster 3,PaddedFaces/img_000102_0.png
+117,Cluster 3,PaddedFaces/img_000103_0.png
+118,Cluster 3,PaddedFaces/img_000104_0.png
+119,Cluster 3,PaddedFaces/img_000105_0.png
+120,Cluster 3,PaddedFaces/img_000106_0.png
+121,Cluster 3,PaddedFaces/img_000107_0.png
+122,Cluster 3,PaddedFaces/img_000108_0.png
+123,Cluster 3,PaddedFaces/img_000111_0.png
